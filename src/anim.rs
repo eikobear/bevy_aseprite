@@ -63,6 +63,7 @@ impl AsepriteAnimation {
 
     fn reset(&mut self, info: &AsepriteInfo) {
         self.tag_changed = false;
+        self.time_elapsed = default();
         match &self.tag {
             Some(tag) => {
                 let tag = match info.tags.get(tag) {
