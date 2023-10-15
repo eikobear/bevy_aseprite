@@ -48,6 +48,19 @@ impl Default for AsepriteAnimation {
 }
 
 impl AsepriteAnimation {
+    pub fn change(&mut self, tag: String) {
+        self.tag = Some(tag);
+        self.tag_changed = true;
+    }
+
+    pub fn is_tag(&self, tag: String) -> bool {
+        if let Some(current) = &self.tag {
+            return *current == tag;
+        }
+
+        return false;
+    }
+
     fn reset(&mut self, info: &AsepriteInfo) {
         self.tag_changed = false;
         match &self.tag {
